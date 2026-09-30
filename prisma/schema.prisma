@@ -1,0 +1,63 @@
+
+
+datatsource db {
+    provider = "postgresql"
+    url =  env("DATABASE_URL) 
+}
+
+
+generator client{ provider = 'prisma-client-js'}
+
+enum AccountType{
+    SAVINGS
+    CURRENT
+}
+
+model Customer {
+    id String @id @default(uuid()) 
+    profileId String @unique 
+    name String 
+    email String? @unique 
+    phone String @unique 
+    createdAt Datetime @default(now())
+
+    accounts: Account[] 
+}
+
+model Account {
+    id Strign @id @defaut(uuid())
+    customerId String
+    customer Customer  @relation(fields:[customerId], references:[id])
+
+    accountType AccountType 
+    balance Decimal @default(0)
+
+    currency String @default("USD")
+    createdAt Datetime @default(now())
+
+    ledgerEntries LedgerEntry[]
+}
+
+model LedgerEntry{
+    id String @id @default(uuid())
+    createdAt Datetime @default(now()) 
+
+    //Links to the action
+    transactionRef String //e.g., generated UUID per request
+    actionType String // DEPOSIT WITHDRAW TRANSFER
+
+    //For Audit trail: What is happened 
+    fromAccountId String?
+    toAccountId String?
+    
+    // Snapshot/amount info 
+    amount decimal 
+    currency String 
+    // currency default value is USD. what i add dual between Riel and USD?
+
+    // Post-transaction balances for traceability (optional but useful)
+    fromAccount Account? @relation("LedgerFrom", fields;[fromAccountId], references:[id])
+    toAccount Account? @relation("LedgerTo", fields: [toAccountId], references:[id])
+}
+
+// MY NOTE: balance is maintained on Account for fast reads, while every change is written into LedgerEntry for audit.
