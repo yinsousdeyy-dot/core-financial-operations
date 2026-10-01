@@ -1,7 +1,9 @@
+# Core Financial Operations
 
-#                      
-  this is the mini project of general financial opertion in finTech or Banking ..
-#
+This is a mini project focused on the fundamental operations commonly found in fintech and banking systems.
 
-Any ways. this is my old habit on building backend logic. If back to the past six months, i tried learning these operation by writing in python in the subject of OOP concept.
-'i write these operation almost 10 times and it became my strong logic of it. but i am still learning more to open other potentials.' 
+The aim of this project is to explore essential backend logic and financial workflows through practical implementation. It reflects my ongoing interest in building reliable, scalable, and well-structured systems that support real-world financial operations.
+
+Over the past six months, I have been strengthening my understanding of these concepts by implementing them in Python using object-oriented programming (OOP). I have revisited these operations numerous times, and each iteration has deepened my understanding of the logic behind them. This process has helped me refine my approach and build a stronger foundation in financial system design and backend development.
+
+This project is a reflection of my learning journey. I continue to improve my skills, explore new ideas, and uncover additional opportunities to grow in this field.
