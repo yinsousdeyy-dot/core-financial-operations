@@ -12,4 +12,5 @@ This project is a reflection of my learning journey. I continue to improve my sk
 
 
 ## SYSTEM DESIGN
-![Uploading image.png…]()
+<img width="1024" height="572" alt="image" src="https://github.com/user-attachments/assets/64a919b2-de07-48af-87fb-52389dbd555d" />
+
